@@ -22,7 +22,7 @@ img{max-width:100%;display:block}
 a{color:var(--azul);text-decoration:none}
 .wrap{max-width:1180px;margin:auto;padding:0 20px}
 
-/* Topbar (marquee discreto) */
+/* Topbar */
 .topbar{background:var(--azul);color:#cbd5e1;overflow:hidden}
 .topbar .track{display:inline-block;white-space:nowrap;padding:8px 0;animation:marquee 24s linear infinite}
 .topbar .pill{display:inline-flex;gap:8px;align-items:center;margin-right:34px;background:#0b1220;padding:6px 12px;border-radius:999px;border:1px solid #223}
@@ -30,7 +30,7 @@ a{color:var(--azul);text-decoration:none}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* Header */
-.header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
+.header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--azul)}
 .brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--dorado)}
@@ -38,6 +38,14 @@ a{color:var(--azul);text-decoration:none}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700}
 .btn--gold{background:var(--dorado);color:#1a1a1a;box-shadow:var(--shadow)}
 .btn--line{border:2px solid var(--azul);color:var(--azul)}
+/* Hamburger */
+.hamb{display:none;border:2px solid #e5e7eb;background:#fff;border-radius:10px;padding:8px 12px}
+.hamb i{font-size:18px;color:#0f1b31}
+.mob-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.25s ease;z-index:85}
+.mob-panel{position:fixed;top:0;right:-320px;width:280px;height:100vh;background:#0b1220;color:#e2e8f0;padding:18px;z-index:86;transition:right .25s ease;display:flex;flex-direction:column;gap:14px}
+.mob-panel a{color:#e2e8f0;border-bottom:1px solid #1f2937;padding:10px 0}
+.mob-open .mob-backdrop{opacity:1;pointer-events:auto}
+.mob-open .mob-panel{right:0}
 
 /* HERO */
 .hero{position:relative;padding:96px 0 56px;background:linear-gradient(180deg,#fff,#eef2ff)}
@@ -63,7 +71,7 @@ a{color:var(--azul);text-decoration:none}
 
 /* CTA sticky */
 .cta-sticky{
-  position:fixed;left:0;right:0;bottom:-120px;z-index:55;transition:bottom .4s ease;
+  position:fixed;left:0;right:0;bottom:-120px;z-index:75;transition:bottom .4s ease;
   background:rgba(8,12,22,.95);backdrop-filter:blur(6px);color:#e5e7eb;border-top:1px solid rgba(255,255,255,.08);
 }
 .cta-sticky .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 20px}
@@ -121,28 +129,34 @@ tr:last-child td{border-bottom:none}
 .form button{margin-top:12px}
 
 /* Sticky Contact Dock */
-.dock{position:fixed;left:14px;bottom:90px;display:flex;flex-direction:column;gap:10px;z-index:70}
+.dock{position:fixed;left:14px;bottom:120px;display:flex;flex-direction:column;gap:10px;z-index:90}
 .dock a{width:46px;height:46px;border-radius:10px;display:grid;place-content:center;color:#fff;box-shadow:0 14px 30px rgba(0,0,0,.25)}
 .dock .wsp{background:#25D366}.dock .mail{background:#0ea5e9}
 
 /* Footer + FAB WSP */
 .footer{background:#0b1220;color:#cbd5e1;padding:22px 0;border-top:1px solid #111}
 .footer a{color:#ffffff}
-.wsp-fab{position:fixed;right:16px;bottom:16px;background:#25D366;color:#fff;border-radius:999px;padding:14px 16px;display:flex;gap:8px;align-items:center;box-shadow:0 18px 36px rgba(37,211,102,.45);z-index:60;font-weight:800}
+.wsp-fab{position:fixed;right:16px;bottom:16px;background:#25D366;color:#fff;border-radius:999px;padding:14px 16px;display:flex;gap:8px;align-items:center;box-shadow:0 18px 36px rgba(37,211,102,.45);z-index:88;font-weight:800}
 
 /* Reveal */
 .reveal{opacity:0;transform:translateY(14px);transition:all .65s ease}
 .reveal.show{opacity:1;transform:none}
 
 /* Responsive */
-@media (max-width:980px){ .hero .wrap{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr 1fr} .bens ul{columns:1} }
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .bens ul{columns:1}
+}
 @media (max-width:640px){
   .menu{display:none}
+  .hamb{display:inline-flex}
   .grid-3{grid-template-columns:1fr}
-  .hero h1{font-size:38px}
+  .hero{padding:56px 0 40px}  /* menos “aire” en móvil */
+  .hero h1{font-size:36px}
   .topbar .track{animation-duration:32s}
   .cta-sticky .wrap{flex-direction:column; align-items:flex-start; gap:10px}
-  body{padding-bottom:90px} /* oxígeno para FAB/CTA */
+  body{padding-bottom:100px} /* oxígeno para FAB/CTA */
 }
 </style>
 </head>
@@ -186,7 +200,19 @@ tr:last-child td{border-bottom:none}
       <a class="btn btn--line" href="#contacto"><i class="fa-regular fa-envelope"></i> Contacto</a>
       <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20cotizar%20una%20web."><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
     </nav>
+    <button class="hamb" id="hamb" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
   </div>
+  <div class="mob-backdrop" id="backdrop"></div>
+  <aside class="mob-panel" id="panel" aria-label="Menú móvil">
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="#portafolio" onclick="closeMenu()">Portafolio</a>
+    <a href="#beneficios" onclick="closeMenu()">Beneficios</a>
+    <a href="#planes" onclick="closeMenu()">Planes</a>
+    <a href="#testimonios" onclick="closeMenu()">Reseñas</a>
+    <a href="#faq" onclick="closeMenu()">FAQs</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+    <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20cotizar%20una%20web."><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+  </aside>
 </header>
 
 <!-- HERO -->
@@ -444,7 +470,7 @@ tr:last-child td{border-bottom:none}
         <h2 style="color:#fff">¿Listo para empezar?</h2>
         <p>Cuéntanos tu idea y te proponemos la mejor estructura para lanzar rápido.</p>
         <p><b>Tel:</b> 980 785 033 · 955 353 039</p>
-        <p><b>Correo:</b> <a href="mailto:alphabroperu@gmail.com">alphabroperu@gmail.com</a></p>
+        <p><b>Correo:</b> <a href="mailto:codexaagency@gmail.com">codexaagency@gmail.com</a></p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
           <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20cotizar%20mi%20web."><i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp</a>
           <a class="btn btn--line" href="#planes"><i class="fa-solid fa-layer-group"></i> Ver planes</a>
@@ -482,7 +508,7 @@ tr:last-child td{border-bottom:none}
 <!-- Sticky Contact Dock -->
 <div class="dock" aria-label="Atajos de contacto">
   <a class="wsp" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20más%20info." target="_blank" rel="noopener" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-  <a class="mail" href="mailto:alphabroperu@gmail.com" title="Enviar correo"><i class="fa-regular fa-envelope"></i></a>
+  <a class="mail" href="mailto:codexaagency@gmail.com" title="Enviar correo"><i class="fa-regular fa-envelope"></i></a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
@@ -503,7 +529,7 @@ function type(){
   typeEl.textContent = t.slice(0, ci);
   if(!borr && ci < t.length){ ci++; }
   else if(borr && ci > 0){ ci--; }
-  else if(ci === t.length){ borr=true; setTimeout(type, 2000); return; }  // pausa larga
+  else if(ci === t.length){ borr=true; setTimeout(type, 2000); return; }
   else { borr=false; fi=(fi+1)%frases.length; }
   setTimeout(type, borr?75:120);
 }
@@ -541,6 +567,14 @@ function sendToWhatsApp(e){
   const texto = `Hola Codexa! Soy ${name}. Me interesa ${serv}. ${msg?('Detalle: '+msg):''}`;
   window.open(`https://wa.me/51980785033?text=${texto}`,'_blank');
 }
+
+/* Menú móvil */
+const body = document.body;
+const hamb = document.getElementById('hamb');
+const backdrop = document.getElementById('backdrop');
+function closeMenu(){ body.classList.remove('mob-open'); }
+hamb.addEventListener('click', ()=> body.classList.add('mob-open'));
+backdrop.addEventListener('click', closeMenu);
 </script>
 </body>
 </html>
