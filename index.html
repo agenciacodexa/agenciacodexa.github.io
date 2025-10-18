@@ -163,16 +163,24 @@ tr:last-child td{border-bottom:none}
   .hero h1{font-size:36px}
   .topbar .track{animation-duration:32s}
   .cta-sticky .wrap{flex-direction:column; align-items:flex-start; gap:10px}
-  body{padding-bottom:100px} /* oxígeno para FAB/CTA */
+  body{padding-bottom:100px} /* espacio para FAB/CTA */
   .contact-grid{grid-template-columns:1fr} /* formulario debajo */
+
+  /* Evitar superposición FAB/dock con CTA sticky */
+  .wsp-fab{ bottom:96px; }
+  .dock{ left:auto; right:14px; bottom:180px; }
 }
 
-/* ===== Menú móvil NO visible en desktop ===== */
+/* Menú móvil NO visible en desktop */
 @media (min-width:641px){
   .mob-backdrop, .mob-panel{ display:none !important; }
   .menu{ display:flex !important; }
   .hamb{ display:none !important; }
 }
+
+/* Cuando la CTA sticky está visible, recolocamos flotantes (extra seguro) */
+body.sticky-open .wsp-fab{ bottom:96px !important; }
+body.sticky-open .dock{ bottom:180px !important; right:14px; left:auto; }
 </style>
 </head>
 <body>
@@ -569,9 +577,13 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 /* AOS */
 AOS.init({ once:true, duration:700, easing:'ease-out' });
 
-/* CTA sticky después de 900px */
+/* CTA sticky + flag en body para recolocar flotantes */
 const ctaSticky = document.getElementById('ctaSticky');
-window.addEventListener('scroll', ()=>{ ctaSticky.classList.toggle('show', window.scrollY>900); });
+window.addEventListener('scroll', ()=>{
+  const show = window.scrollY > 900;
+  ctaSticky.classList.toggle('show', show);
+  document.body.classList.toggle('sticky-open', show);
+});
 
 /* Form → WhatsApp */
 function sendToWhatsApp(e){
