@@ -18,8 +18,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-html,body{overflow-x:hidden} /* FIX scroll lateral */
-
+html,body{overflow-x:hidden}
 body{margin:0;font:16px/1.6 Inter,system-ui,Arial;color:var(--ink);background:var(--bg)}
 img{max-width:100%;display:block}
 a{color:var(--azul);text-decoration:none}
@@ -42,15 +41,32 @@ a{color:var(--azul);text-decoration:none}
 .btn--gold{background:var(--dorado);color:#1a1a1a;box-shadow:var(--shadow)}
 .btn--line{border:2px solid var(--azul);color:var(--azul)}
 
+/* ===== Dropdown HOSTING (desktop) ===== */
+.menu .dd{position:relative; display:inline-flex; align-items:center; gap:6px}
+.menu .dd-toggle{cursor:default; display:inline-flex; align-items:center; gap:6px; color:var(--azul); font-weight:600}
+.menu .dd-panel{
+  position:absolute; top:calc(100% + 8px); left:0; min-width:220px;
+  background:#fff; border:1px solid #e5e7eb; border-radius:12px;
+  box-shadow:var(--shadow); padding:8px; display:none; z-index:99
+}
+.menu .dd:hover .dd-panel{display:block}
+.menu .dd-panel a{display:block; padding:10px 12px; border-radius:10px; color:var(--azul)}
+.menu .dd-panel a:hover{background:#f7f8fc}
+
 /* Hamburger / panel móvil */
 .hamb{display:none;border:2px solid #e5e7eb;background:#fff;border-radius:10px;padding:8px 12px}
 .hamb i{font-size:18px;color:#0f1b31}
-.mob-backdrop,.mob-panel{display:none} /* base oculto; se activa en móvil */
+.mob-backdrop,.mob-panel{display:none}
 .mob-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.25s ease;z-index:85}
 .mob-panel{position:fixed;top:0;right:-320px;width:280px;height:100vh;background:#0b1220;color:#e2e8f0;padding:18px;z-index:86;transition:right .25s ease;display:flex;flex-direction:column;gap:14px}
 .mob-panel a{color:#e2e8f0;border-bottom:1px solid #1f2937;padding:10px 0}
 .mob-open .mob-backdrop{opacity:1;pointer-events:auto}
 .mob-open .mob-panel{right:0}
+/* Título de sección en panel móvil */
+.mob-title{
+  margin-top:6px; padding-top:6px; border-top:1px solid #1f2937;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.7
+}
 
 /* HERO */
 .hero{position:relative;padding:96px 0 56px;background:linear-gradient(180deg,#fff,#eef2ff)}
@@ -126,7 +142,7 @@ tr:last-child td{border-bottom:none}
 
 /* CONTACTO */
 .cta-final{background:linear-gradient(120deg, var(--azul), var(--azul-2));color:#e2e8f0}
-.cta-final a{color:#fff} /* correo blanco */
+.cta-final a{color:#fff}
 .form{background:#0b1220;border:1px solid #0f172a;border-radius:16px;padding:16px}
 .form label{display:block;margin:10px 0 6px}
 .form input,.form select,.form textarea{width:100%;padding:12px;border:1px solid #334155;border-radius:10px;background:#0f172a;color:#e2e8f0}
@@ -159,14 +175,12 @@ tr:last-child td{border-bottom:none}
   .mob-backdrop{display:block}
   .mob-panel{display:flex}
   .grid-3{grid-template-columns:1fr}
-  .hero{padding:56px 0 40px}  /* menos aire en móvil */
+  .hero{padding:56px 0 40px}
   .hero h1{font-size:36px}
   .topbar .track{animation-duration:32s}
   .cta-sticky .wrap{flex-direction:column; align-items:flex-start; gap:10px}
-  body{padding-bottom:100px} /* espacio para FAB/CTA */
-  .contact-grid{grid-template-columns:1fr} /* formulario debajo */
-
-  /* Evitar superposición FAB/dock con CTA sticky */
+  body{padding-bottom:100px}
+  .contact-grid{grid-template-columns:1fr}
   .wsp-fab{ bottom:96px; }
   .dock{ left:auto; right:14px; bottom:180px; }
 }
@@ -213,23 +227,42 @@ body.sticky-open .dock{ bottom:180px !important; right:14px; left:auto; }
       <img src="https://scontent.flim30-1.fna.fbcdn.net/v/t39.30808-6/503700924_122112755192896023_6466574432067269099_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHEWRmXQ4bSd1H-wwRAxPuThG3ogxd8l4OEbeiDF3yXg_Yn5FDP_3GfnOYAongv_TuKkxcI45jnII9kyB2d6HEB&_nc_ohc=IFTqr9x_9yUQ7kNvwFN_bYg&_nc_oc=AdnN6OJ8iSMNzBJWloSezEMWyPfIzTcCrZB1uAkoXBZPWt-NxZNAHZi1HytfXbirzzxtAifeBpqpCCB1vHh9pw41&_nc_zt=23&_nc_ht=scontent.flim30-1.fna&_nc_gid=EFfW7nTA8snQrncD4CEQbw&oh=00_Afdd29V3oyfZKzCWxfj8Vv_KjeAzZXFD9PfBOb8GRWN_rQ&oe=68F8E7BF" alt="Logo Codexa">
       Codexa Agency
     </a>
+    <!-- MENÚ ESCRITORIO -->
     <nav class="menu">
       <a href="#servicios">Servicios</a>
       <a href="#portafolio">Portafolio</a>
       <a href="#beneficios">Beneficios</a>
+
+      <!-- Dropdown HOSTING (sin enlace propio) -->
+      <div class="dd" id="dd-hosting">
+        <span class="dd-toggle">Hosting <i class="fa-solid fa-angle-down" style="font-size:12px"></i></span>
+        <div class="dd-panel">
+          <a href="/hosting-greengeeks/">GreenGeeks 2025</a>
+        </div>
+      </div>
+
       <a href="#planes">Planes</a>
       <a href="#testimonios">Reseñas</a>
       <a href="#faq">FAQs</a>
       <a class="btn btn--line" href="#contacto"><i class="fa-regular fa-envelope"></i> Contacto</a>
       <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20cotizar%20una%20web."><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
     </nav>
+
+    <!-- Botón hamburguesa -->
     <button class="hamb" id="hamb" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
   </div>
+
+  <!-- PANEL MÓVIL -->
   <div class="mob-backdrop" id="backdrop"></div>
   <aside class="mob-panel" id="panel" aria-label="Menú móvil">
     <a href="#servicios" onclick="closeMenu()">Servicios</a>
     <a href="#portafolio" onclick="closeMenu()">Portafolio</a>
     <a href="#beneficios" onclick="closeMenu()">Beneficios</a>
+
+    <!-- Sección HOSTING en móvil -->
+    <div class="mob-title">Hosting</div>
+    <a href="/hosting-greengeeks/" onclick="closeMenu()">GreenGeeks 2025</a>
+
     <a href="#planes" onclick="closeMenu()">Planes</a>
     <a href="#testimonios" onclick="closeMenu()">Reseñas</a>
     <a href="#faq" onclick="closeMenu()">FAQs</a>
@@ -608,6 +641,27 @@ const mql = window.matchMedia('(min-width: 641px)');
 function handleViewportChange(e){ if(e.matches){ closeMenu(); } }
 mql.addEventListener ? mql.addEventListener('change', handleViewportChange)
                      : mql.addListener(handleViewportChange);
+
+/* Dropdown HOSTING por click (accesible en táctiles) */
+const dd = document.getElementById('dd-hosting');
+if (dd) {
+  const toggle = dd.querySelector('.dd-toggle');
+  const panel  = dd.querySelector('.dd-panel');
+  let open = false;
+  function setOpen(v){
+    open = v;
+    panel.style.display = open ? 'block' : '';
+  }
+  toggle.addEventListener('click', (e)=>{
+    e.preventDefault();
+    setOpen(!open);
+  });
+  document.addEventListener('click',(e)=>{
+    if(!dd.contains(e.target)) setOpen(false);
+  });
+  // Esc tecla ESC
+  document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') setOpen(false); });
+}
 </script>
 </body>
 </html>
