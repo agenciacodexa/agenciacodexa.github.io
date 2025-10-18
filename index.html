@@ -4,21 +4,17 @@
 <meta charset="utf-8" />
 <title>Codexa Agency — Webs que piensan. Resultados que cuentan.</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="Diseñamos páginas web modernas, rápidas y enfocadas en resultados. Landing pages y tiendas online con SEO, performance y conversión.">
-
-<!-- Fuentes / Iconos / Libs -->
+<meta name="description" content="Agencia web: landings y tiendas online modernas, rápidas y enfocadas en resultados. SEO, performance y conversiones.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
 <link rel="icon" href="https://scontent.flim30-1.fna.fbcdn.net/v/t39.30808-6/503700924_122112755192896023_6466574432067269099_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHEWRmXQ4bSd1H-wwRAxPuThG3ogxd8l4OEbeiDF3yXg_Yn5FDP_3GfnOYAongv_TuKkxcI45jnII9kyB2d6HEB&_nc_ohc=IFTqr9x_9yUQ7kNvwFN_bYg&_nc_oc=AdnN6OJ8iSMNzBJWloSezEMWyPfIzTcCrZB1uAkoXBZPWt-NxZNAHZi1HytfXbirzzxtAifeBpqpCCB1vHh9pw41&_nc_zt=23&_nc_ht=scontent.flim30-1.fna&_nc_gid=EFfW7nTA8snQrncD4CEQbw&oh=00_Afdd29V3oyfZKzCWxfj8Vv_KjeAzZXFD9PfBOb8GRWN_rQ&oe=68F8E7BF">
-
 <style>
 :root{
-  --azul:#1b2a45; --azul-2:#223656; --dorado:#d2b356;
-  --ink:#0f172a; --muted:#64748b; --bg:#f6f8fb; --white:#fff;
+  --azul:#1b2a45; --azul-2:#0f1b31; --dorado:#d2b356;
+  --ink:#0b1220; --muted:#64748b; --bg:#f6f8fb; --white:#fff;
   --ok:#16a34a; --shadow:0 24px 60px rgba(0,0,0,.10);
 }
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -27,9 +23,9 @@ img{max-width:100%;display:block}
 a{color:var(--azul);text-decoration:none}
 .wrap{max-width:1180px;margin:auto;padding:0 20px}
 
-/* Topbar animada (marquee) */
+/* Topbar (marquee discreto) */
 .topbar{background:var(--azul);color:#cbd5e1;overflow:hidden}
-.topbar .track{display:inline-block;white-space:nowrap;padding:8px 0;animation:marquee 22s linear infinite}
+.topbar .track{display:inline-block;white-space:nowrap;padding:8px 0;animation:marquee 24s linear infinite}
 .topbar .pill{display:inline-flex;gap:8px;align-items:center;margin-right:34px;background:#0b1220;padding:6px 12px;border-radius:999px;border:1px solid #223}
 .topbar i{color:#25D366}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -44,19 +40,18 @@ a{color:var(--azul);text-decoration:none}
 .btn--gold{background:var(--dorado);color:#1a1a1a;box-shadow:var(--shadow)}
 .btn--line{border:2px solid var(--azul);color:var(--azul)}
 
-/* Banner / Hero con efectos */
-.hero{position:relative; padding:96px 0 56px; background:linear-gradient(180deg,#fff,#eef2ff); overflow:hidden}
+/* HERO */
+.hero{position:relative;padding:96px 0 56px;background:linear-gradient(180deg,#fff,#eef2ff)}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center}
 .bg-blobs{
   position:absolute; inset:-20% -10% auto -10%; height:70vh; pointer-events:none;
   background:
-   radial-gradient(700px 350px at 90% -10%, rgba(210,179,86,.25), transparent 60%),
+   radial-gradient(700px 350px at 90% -10%, rgba(210,179,86,.22), transparent 60%),
    radial-gradient(900px 450px at -10% 10%, rgba(27,42,69,.10), transparent 60%);
   animation:float 16s ease-in-out infinite alternate;
 }
-@keyframes float{from{transform:translateY(-10px)}to{transform:translateY(12px)}}
+@keyframes float{from{transform:translateY(-8px)}to{transform:translateY(10px)}}
 .spot{position:absolute; inset:0; background:radial-gradient(180px 180px at var(--mx,50%) var(--my,40%), rgba(255,255,255,.35), transparent 70%); mix-blend-mode:soft-light; pointer-events:none}
-
 .badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
 .badge{background:#0b1220;color:#e2e8f0;border:1px solid #1f2937;padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
 .hero h1{font-size:48px;line-height:1.1;margin:0 0 12px;color:var(--azul)}
@@ -67,12 +62,13 @@ a{color:var(--azul);text-decoration:none}
 .kpi b{display:block;font-size:22px;color:var(--azul)}
 .hero-card{background:var(--white);border:1px solid #e5e7eb;border-radius:18px;padding:18px;box-shadow:var(--shadow)}
 
-/* Barra CTA sticky (aparece al hacer scroll) */
+/* CTA sticky */
 .cta-sticky{
-  position:fixed;left:0;right:0;bottom:-120px;z-index:45;transition:bottom .4s ease;
-  background:#0b1220;color:#e5e7eb;border-top:1px solid #111;
+  position:fixed;left:0;right:0;bottom:-120px;z-index:55;transition:bottom .4s ease;
+  background:rgba(6,10,18,.9);backdrop-filter:blur(6px);color:#e5e7eb;border-top:1px solid #0e1529;
 }
 .cta-sticky .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 20px}
+.cta-sticky .btn--line{border-color:#cbd5e1;color:#e5e7eb}
 .cta-sticky.show{bottom:0}
 
 /* Secciones */
@@ -83,19 +79,13 @@ a{color:var(--azul);text-decoration:none}
 .card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:18px;box-shadow:var(--shadow)}
 .card h3{margin:0 0 6px}
 
-/* Servicios */
-.serv .card{position:relative;overflow:hidden}
-.serv .card:after{content:"";position:absolute;inset:auto -40% -40% auto;width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(closest-side, rgba(210,179,86,.25), transparent);transform:rotate(25deg)}
-
-/* Portafolio (Swiper) */
-.port .swiper{padding-bottom:34px}
-.port .swiper-slide .card img{border-radius:12px;margin-bottom:10px;border:1px solid #e5e7eb}
-
-/* Logos/Stacks */
-.stacks{position:relative;padding:90px 0;background:radial-gradient(600px 250px at 50% 40%, rgba(210,179,86,.18), transparent 60%)}
-.icons{display:grid;grid-template-columns:repeat(8,1fr);gap:22px;opacity:.85}
-.icons i{font-size:38px;color:#94a3b8}
+/* PORTAFOLIO (estilo “browser frame” sin stack feo) */
+.port .grid-3 .shot{border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;margin-bottom:10px}
+.browser{background:#eef2ff;padding:8px 10px;display:flex;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#ff5f57}.dot.y{background:#ffbd2e}.dot.g{background:#28c840}
+.screenshot{height:210px;background:#fff}
+.screenshot img{width:100%;height:100%;object-fit:cover}
 
 /* Beneficios */
 .bens ul{columns:2;gap:26px;margin:12px 0 0 0;padding:0;list-style:none}
@@ -103,19 +93,17 @@ a{color:var(--azul);text-decoration:none}
 .check{width:22px;height:22px;display:inline-grid;place-content:center;background:rgba(22,163,74,.1);
   color:var(--ok);border-radius:6px;border:1px solid rgba(22,163,74,.25);font-weight:900}
 
-/* Planes (sin precios) */
+/* PLANES (sin precios) */
 .plans .card{position:relative}
-.mask{position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));border-radius:18px;display:flex;align-items:flex-end;justify-content:center;padding:16px;color:#fff;pointer-events:none}
 .plan-title{font-size:20px;font-weight:800;color:var(--azul);margin:0 0 8px}
 .plan-feats{margin:0 0 14px 18px;padding:0}
 .plan-feats li{margin:6px 0}
-.plan-cta{display:flex;gap:8px;align-items:center}
 
-/* Testimonios */
+/* TESTIMONIOS */
 .testi .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--dorado)}
 .testi .item{display:flex;gap:12px}
 
-/* CTA final + Form WSP */
+/* CTA final + Form */
 .cta-final{background:linear-gradient(120deg, var(--azul), var(--azul-2));color:#e2e8f0}
 .form{background:#0b1220;border:1px solid #0f172a;border-radius:16px;padding:16px}
 .form label{display:block;margin:10px 0 6px}
@@ -132,8 +120,8 @@ a{color:var(--azul);text-decoration:none}
 .reveal.show{opacity:1;transform:none}
 
 /* Responsive */
-@media (max-width:980px){ .hero .wrap{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr 1fr} .bens ul{columns:1} .icons{grid-template-columns:repeat(4,1fr)} }
-@media (max-width:640px){ .menu{display:none} .grid-3{grid-template-columns:1fr} .hero h1{font-size:38px} .topbar .track{animation-duration:28s} .icons{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:980px){ .hero .wrap{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr 1fr} .bens ul{columns:1}}
+@media (max-width:640px){ .menu{display:none} .grid-3{grid-template-columns:1fr} .hero h1{font-size:38px} .topbar .track{animation-duration:32s} }
 </style>
 </head>
 <body>
@@ -147,12 +135,14 @@ a{color:var(--azul);text-decoration:none}
       <span class="pill"><i class="fa-brands fa-whatsapp"></i> Soporte por WhatsApp</span>
       <span class="pill"><i class="fa-solid fa-arrow-trend-up"></i> Enfoque en resultados</span>
       <span class="pill"><i class="fa-solid fa-rocket"></i> SEO y analítica</span>
+      <span class="pill"><i class="fa-solid fa-pen-ruler"></i> Diseño con propósito</span>
       <!-- duplicado para loop natural -->
       <span class="pill"><i class="fa-solid fa-bolt"></i> Entrega rápida</span>
       <span class="pill"><i class="fa-solid fa-shield-halved"></i> Seguridad & performance</span>
       <span class="pill"><i class="fa-brands fa-whatsapp"></i> Soporte por WhatsApp</span>
       <span class="pill"><i class="fa-solid fa-arrow-trend-up"></i> Enfoque en resultados</span>
       <span class="pill"><i class="fa-solid fa-rocket"></i> SEO y analítica</span>
+      <span class="pill"><i class="fa-solid fa-pen-ruler"></i> Diseño con propósito</span>
     </div>
   </div>
 </div>
@@ -177,7 +167,7 @@ a{color:var(--azul);text-decoration:none}
   </div>
 </header>
 
-<!-- BANNER / HERO -->
+<!-- HERO -->
 <section id="inicio" class="hero" aria-label="Hero">
   <div class="bg-blobs"></div>
   <div class="spot" id="spot"></div>
@@ -214,11 +204,11 @@ a{color:var(--azul);text-decoration:none}
   </div>
 </section>
 
-<!-- BARRA CTA STICKY -->
+<!-- CTA STICKY -->
 <div class="cta-sticky" id="ctaSticky">
   <div class="wrap">
-    <span><b>Listo para despegar tu web</b> — Hablemos por WhatsApp</span>
-    <div class="plan-cta">
+    <span><b>¿Listo para despegar tu web?</b> — Conversemos por WhatsApp</span>
+    <div>
       <a class="btn btn--line" href="#planes"><i class="fa-solid fa-layer-group"></i> Ver planes</a>
       <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20cotizar."><i class="fa-brands fa-whatsapp"></i> Cotizar ahora</a>
     </div>
@@ -247,62 +237,78 @@ a{color:var(--azul);text-decoration:none}
   </div>
 </section>
 
-<!-- PORTAFOLIO (carrusel, + imágenes) -->
+<!-- PORTAFOLIO (imágenes tipo web, sin rotas) -->
 <section id="portafolio" class="section port">
   <div class="wrap">
     <h2 data-aos="fade-up">Portafolio</h2>
-    <p class="lead" data-aos="fade-up" data-aos-delay="80">Algunos estilos y layouts que entregamos (imágenes referenciales).</p>
-
-    <div class="swiper" data-aos="zoom-in">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <article class="card">
-            <img alt="Landing moderna" src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1300&auto=format&fit=crop">
-            <h3>Landing de Servicios</h3>
-            <p>Hero persuasivo, pruebas sociales y CTA directo.</p>
-          </article>
+    <p class="lead" data-aos="fade-up" data-aos-delay="80">Muestrario referencial de estilos y layouts de páginas web.</p>
+    <div class="grid-3">
+      <!-- Card 1 -->
+      <article class="card" data-aos="fade-up">
+        <div class="shot">
+          <div class="browser"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <div class="screenshot">
+            <img alt="Landing moderna" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1400&auto=format&fit=crop">
+          </div>
         </div>
-        <div class="swiper-slide">
-          <article class="card">
-            <img alt="Tienda minimal" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1300&auto=format&fit=crop">
-            <h3>Tienda Minimal</h3>
-            <p>Checkout simple, catálogo limpio y performance.</p>
-          </article>
+        <h3>Landing de Servicios</h3>
+        <p>Hero persuasivo, prueba social y CTA directo.</p>
+      </article>
+      <!-- Card 2 -->
+      <article class="card" data-aos="fade-up" data-aos-delay="60">
+        <div class="shot">
+          <div class="browser"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <div class="screenshot">
+            <img alt="Tienda minimal" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop">
+          </div>
         </div>
-        <div class="swiper-slide">
-          <article class="card">
-            <img alt="Corporativo" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1300&auto=format&fit=crop">
-            <h3>Corporativo</h3>
-            <p>Arquitectura de información, blog y SEO base.</p>
-          </article>
+        <h3>Tienda Minimal</h3>
+        <p>Catálogo limpio, checkout simple y performance.</p>
+      </article>
+      <!-- Card 3 -->
+      <article class="card" data-aos="fade-up" data-aos-delay="120">
+        <div class="shot">
+          <div class="browser"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <div class="screenshot">
+            <img alt="Corporativo" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1400&auto=format&fit=crop">
+          </div>
         </div>
-        <div class="swiper-slide">
-          <article class="card">
-            <img alt="Educación" src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1300&auto=format&fit=crop">
-            <h3>Educación</h3>
-            <p>Landing educativa con formulario y analítica.</p>
-          </article>
+        <h3>Corporativo</h3>
+        <p>Arquitectura de información, blog y SEO base.</p>
+      </article>
+      <!-- Card 4 -->
+      <article class="card" data-aos="fade-up">
+        <div class="shot">
+          <div class="browser"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <div class="screenshot">
+            <img alt="Educación" src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1400&auto=format&fit=crop">
+          </div>
         </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-
-<!-- LOGOS / STACKS -->
-<section class="stacks">
-  <div class="wrap">
-    <h2 style="text-align:center;margin:0 0 8px;color:var(--azul)">Herramientas y stack</h2>
-    <p class="lead" style="text-align:center">Confiamos en tecnologías que dan resultados reales.</p>
-    <div class="icons" data-aos="zoom-in">
-      <i class="fa-brands fa-wordpress"></i>
-      <i class="fa-brands fa-elementor"></i>
-      <i class="fa-brands fa-woocommerce"></i>
-      <i class="fa-brands fa-openai"></i>
-      <i class="fa-brands fa-google"></i>
-      <i class="fa-solid fa-chart-line"></i>
-      <i class="fa-brands fa-html5"></i>
-      <i class="fa-brands fa-css3-alt"></i>
+        <h3>Educación</h3>
+        <p>Landing educativa con formulario y analítica.</p>
+      </article>
+      <!-- Card 5 -->
+      <article class="card" data-aos="fade-up" data-aos-delay="60">
+        <div class="shot">
+          <div class="browser"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <div class="screenshot">
+            <img alt="SaaS" src="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1400&auto=format&fit=crop">
+          </div>
+        </div>
+        <h3>SaaS / Startup</h3>
+        <p>Secciones de producto, pricing y FAQs.</p>
+      </article>
+      <!-- Card 6 -->
+      <article class="card" data-aos="fade-up" data-aos-delay="120">
+        <div class="shot">
+          <div class="browser"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <div class="screenshot">
+            <img alt="Portfolio creativo" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1400&auto=format&fit=crop">
+          </div>
+        </div>
+        <h3>Portfolio Creativo</h3>
+        <p>Galerías, sliders y microinteracciones.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -330,37 +336,31 @@ a{color:var(--azul);text-decoration:none}
     <p class="lead" data-aos="fade-up" data-aos-delay="80">Precios a coordinar por WhatsApp según alcance. Te guiamos al mejor costo-beneficio.</p>
     <div class="grid-3">
       <article class="card" data-aos="fade-up">
-        <h3 class="plan-title"><i class="fa-solid fa-rocket"></i> Plan Start</h3>
+        <h3 class="plan-title"><i class="fa-solid fa-rocket"></i> Start</h3>
         <ul class="plan-feats">
           <li>Landing 1 sección (scroll)</li>
           <li>Diseño responsive + SEO base</li>
           <li>Integración WhatsApp</li>
         </ul>
-        <div class="plan-cta">
-          <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20el%20Plan%20Start."><i class="fa-brands fa-whatsapp"></i> Solicitar precio</a>
-        </div>
+        <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20el%20Plan%20Start."><i class="fa-brands fa-whatsapp"></i> Solicitar precio</a>
       </article>
       <article class="card" data-aos="fade-up" data-aos-delay="80">
-        <h3 class="plan-title"><i class="fa-solid fa-layer-group"></i> Plan Pro</h3>
+        <h3 class="plan-title"><i class="fa-solid fa-layer-group"></i> Pro</h3>
         <ul class="plan-feats">
           <li>Landing multi-sección</li>
           <li>Optimización de velocidad</li>
           <li>Blog/Artículos iniciales</li>
         </ul>
-        <div class="plan-cta">
-          <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20el%20Plan%20Pro."><i class="fa-brands fa-whatsapp"></i> Solicitar precio</a>
-        </div>
+        <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20el%20Plan%20Pro."><i class="fa-brands fa-whatsapp"></i> Solicitar precio</a>
       </article>
       <article class="card" data-aos="fade-up" data-aos-delay="140">
-        <h3 class="plan-title"><i class="fa-solid fa-store"></i> Plan Tienda</h3>
+        <h3 class="plan-title"><i class="fa-solid fa-store"></i> Tienda</h3>
         <ul class="plan-feats">
           <li>Catálogo + carrito</li>
           <li>Integración de pagos</li>
           <li>Automatizaciones clave</li>
         </ul>
-        <div class="plan-cta">
-          <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20el%20Plan%20Tienda."><i class="fa-brands fa-whatsapp"></i> Solicitar precio</a>
-        </div>
+        <a class="btn btn--gold" target="_blank" rel="noopener" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Quiero%20el%20Plan%20Tienda."><i class="fa-brands fa-whatsapp"></i> Solicitar precio</a>
       </article>
     </div>
   </div>
@@ -370,33 +370,24 @@ a{color:var(--azul);text-decoration:none}
 <section id="testimonios" class="section testi">
   <div class="wrap">
     <h2 data-aos="fade-up">Lo que dicen</h2>
-    <div class="swiper" data-aos="fade-up" data-aos-delay="60">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="card item">
-            <img class="avatar" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=256&auto=format&fit=crop" alt="">
-            <div><p>“Nos ayudaron a vender desde la primera semana. Rápidos y muy atentos.”</p><small>— Mariana R.</small></div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card item">
-            <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=256&auto=format&fit=crop" alt="">
-            <div><p>“La tienda quedó limpia, carga rápido y el checkout es claro.”</p><small>— Jorge P.</small></div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card item">
-            <img class="avatar" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=256&auto=format&fit=crop" alt="">
-            <div><p>“Buena estrategia de contenidos y SEO base. Recomendados.”</p><small>— Andrea C.</small></div>
-          </div>
-        </div>
+    <div class="grid-3">
+      <div class="card item" data-aos="fade-up">
+        <img class="avatar" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=256&auto=format&fit=crop" alt="">
+        <div><p>“Nos ayudaron a vender desde la primera semana. Rápidos y muy atentos.”</p><small>— Mariana R.</small></div>
       </div>
-      <div class="swiper-pagination"></div>
+      <div class="card item" data-aos="fade-up" data-aos-delay="80">
+        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=256&auto=format&fit=crop" alt="">
+        <div><p>“La tienda quedó limpia, carga rápido y el checkout es claro.”</p><small>— Jorge P.</small></div>
+      </div>
+      <div class="card item" data-aos="fade-up" data-aos-delay="140">
+        <img class="avatar" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=256&auto=format&fit=crop" alt="">
+        <div><p>“Buena estrategia de contenidos y SEO base. Recomendados.”</p><small>— Andrea C.</small></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FAQs -->
+<!-- FAQ -->
 <section id="faq" class="section faq">
   <div class="wrap">
     <h2 class="reveal">Preguntas frecuentes</h2>
@@ -408,7 +399,7 @@ a{color:var(--azul);text-decoration:none}
   </div>
 </section>
 
-<!-- CTA + FORM WSP -->
+<!-- CONTACTO -->
 <section id="contacto" class="section cta-final">
   <div class="wrap">
     <div class="reveal" style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start">
@@ -422,8 +413,6 @@ a{color:var(--azul);text-decoration:none}
           <a class="btn btn--line" href="#planes"><i class="fa-solid fa-layer-group"></i> Ver planes</a>
         </div>
       </div>
-
-      <!-- Formulario -> WhatsApp -->
       <form class="form" id="wspForm" onsubmit="sendToWhatsApp(event)">
         <h3 style="margin:0 0 8px">Cotiza aquí</h3>
         <label>Tu nombre</label>
@@ -442,24 +431,23 @@ a{color:var(--azul);text-decoration:none}
   </div>
 </section>
 
-<!-- Footer + FAB WSP -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
     <small>© <span id="year"></span> Codexa Agency. Todos los derechos reservados.</small>
     <small><a href="#inicio">Volver arriba ↑</a></small>
   </div>
 </footer>
+
+<!-- FAB WhatsApp -->
 <a class="wsp-fab" href="https://wa.me/51980785033?text=Hola%20Codexa!%20Vengo%20desde%20la%20web." target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
 
-<!-- Libs -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
-
 <script>
 /* Año */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Typewriter más lento */
+/* Typewriter LENTO */
 const typeEl = document.getElementById('type');
 const frases = [
   'páginas web modernas, seguras y enfocadas en resultados.',
@@ -472,15 +460,15 @@ function type(){
   typeEl.textContent = t.slice(0, ci);
   if(!borr && ci < t.length){ ci++; }
   else if(borr && ci > 0){ ci--; }
-  else if(ci === t.length){ borr=true; setTimeout(type, 1800); return; } // pausa más larga
+  else if(ci === t.length){ borr=true; setTimeout(type, 2000); return; }  // pausa larga
   else { borr=false; fi=(fi+1)%frases.length; }
-  setTimeout(type, borr?65:95); // más lento
+  setTimeout(type, borr?70:110); // más lento
 }
 type();
 
-/* Spotlight que sigue el mouse */
+/* Spotlight del mouse */
 const spot = document.getElementById('spot');
-window.addEventListener('mousemove', (e)=>{
+window.addEventListener('mousemove',(e)=>{
   const r = spot.getBoundingClientRect();
   const x = ((e.clientX - r.left)/r.width)*100;
   const y = ((e.clientY - r.top)/r.height)*100;
@@ -490,39 +478,25 @@ window.addEventListener('mousemove', (e)=>{
 
 /* Reveal on scroll */
 const obs = new IntersectionObserver((ents)=>{
-  ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); }});
+  ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target);} });
 },{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 /* AOS */
 AOS.init({ once:true, duration:700, easing:'ease-out' });
 
-/* Swipers */
-new Swiper('#portafolio .swiper', {
-  slidesPerView: 1.05, spaceBetween: 16,
-  breakpoints:{ 640:{slidesPerView:2}, 980:{slidesPerView:3}},
-  pagination:{ el: '#portafolio .swiper-pagination', clickable:true }
-});
-new Swiper('#testimonios .swiper', {
-  slidesPerView: 1.05, spaceBetween: 16,
-  breakpoints:{ 640:{slidesPerView:2}, 980:{slidesPerView:3}},
-  autoplay:{ delay: 3500 }, loop:true,
-  pagination:{ el: '#testimonios .swiper-pagination', clickable:true }
-});
-
-/* Barra CTA sticky cuando baja 600px */
+/* CTA sticky después de 600px */
 const ctaSticky = document.getElementById('ctaSticky');
 window.addEventListener('scroll', ()=>{ ctaSticky.classList.toggle('show', window.scrollY>600); });
 
-/* Form -> WhatsApp */
+/* Form → WhatsApp */
 function sendToWhatsApp(e){
   e.preventDefault();
   const name = encodeURIComponent(document.getElementById('f_name').value.trim());
   const serv = encodeURIComponent(document.getElementById('f_service').value);
   const msg  = encodeURIComponent(document.getElementById('f_msg').value.trim());
   const texto = `Hola Codexa! Soy ${name}. Me interesa ${serv}. ${msg?('Detalle: '+msg):''}`;
-  const phone = '51980785033';
-  window.open(`https://wa.me/${phone}?text=${texto}`,'_blank');
+  window.open(`https://wa.me/51980785033?text=${texto}`,'_blank');
 }
 </script>
 </body>
